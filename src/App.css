@@ -18,24 +18,47 @@ h2 {
 .item {
   text-align: center;
   margin: 6px 6px;
+  height: 100%;
 }
 
 button {
   border: none;
-  font-size: 18px;
-  font-weight: bold;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  background: none;
+  cursor: pointer;
 }
 
-img {
+.image {
   height: 350px;
   width: 250px;
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  display: flex;
+  margin: 0 auto;
+  margin-top: -40px;
+  width: 50%;
+  /* text-align:center */
+}
+
+.item:hover .image {
+  opacity: 0.3;
+}
+
+.item:hover .middle {
+  opacity: 1;
 }
 
 .title {
-  margin-top: -30px;
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 20px;
@@ -44,6 +67,10 @@ img {
 
 li {
   color: #f6f6f6;
+}
+
+p {
+  color: white;
 }
 
 

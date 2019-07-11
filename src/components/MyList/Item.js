@@ -6,9 +6,13 @@ class Item extends Component {
         const { item } = this.props;
         return (
             <div className="item">
-                <img src={item.img} alt={item.title} />
-                <div className="title">{item.title}</div>
-                <button onClick={this.props.handleClick}>X</button>
+                <img className="image" src={item.img} alt={item.title} />
+                <div className="middle">
+                    <div className="title">{item.title}</div>
+                    <button onClick={this.props.handleClick}>
+                        <i class="far fa-trash-alt" />
+                    </button>
+                </div>
             </div>
         )
     }

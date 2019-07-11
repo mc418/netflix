@@ -14,6 +14,7 @@ class MyList extends Component {
                     {list.map(item => (
                         <Item item={item} handleClick={() => {this.props.remove(item)}} />
                     ))}
+                    {list.length === 0 && <p>whoops, nothing in your list yet, take a look at recommendation!</p>}
                 </div>
             </div>
         )

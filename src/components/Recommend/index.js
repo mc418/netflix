@@ -21,6 +21,7 @@ class Recommend extends Component {
                     {rec.map(item => (
                         <Item item={item} handleClick={() => this.props.addToList(item)}/>
                     ))}
+                    {rec.length === 0 && <p>seems like you got all we have, we'll get you more asap!</p>}
                 </div>
             </div>
         )
