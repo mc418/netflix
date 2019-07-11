@@ -9,7 +9,7 @@ class MyList extends Component {
         const { list } = this.props;
         return (
             <div>
-                <h2>List</h2>
+                <h2>My List</h2>
                 <div className="item-container">
                     {list.map(item => (
                         <Item item={item} handleClick={() => {this.props.remove(item)}} />
