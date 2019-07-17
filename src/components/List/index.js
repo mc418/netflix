@@ -9,7 +9,7 @@ class List extends Component {
                 <h2>List</h2>
                 <ul>
                     {myList.map(item => (
-                        <li>
+                        <li key={item.id}>
                             {item.title}
                         </li>
                     ))}

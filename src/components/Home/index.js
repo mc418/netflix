@@ -15,7 +15,7 @@ class Home extends Component {
         const {list, recommend} = this.props;
         return (
             <div>
-                <h1>HOME</h1>
+                <h1>NETFLIX</h1>
                 <MyList />
                 <Recommend rec={recommend} />
                 <List myList={list} />

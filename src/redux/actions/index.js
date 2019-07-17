@@ -1,12 +1,40 @@
-import jsonData from "../../data/data.json";
-const loadData = () => JSON.parse(JSON.stringify(jsonData));
-const data = loadData();
+// import jsonData from "../../data/data.json";
+// const loadData = () => JSON.parse(JSON.stringify(jsonData));
+// const data = loadData();
+import axios from "axios"
+
+function loadListRequest() {
+    return {
+        type: "LOAD_LIST_REQUEST"
+    }
+}
+
+function loadListSuccess(response) {
+    return {
+        type: "LOAD_LIST_SUCCESS",
+        data: response.data
+    }
+}
+
+function loadListFail() {
+    return {
+        type: "LOAD_LIST_FAIL"
+    }
+}
 
 export const loadList = () => {
-    return {
-        type: "LOAD_LIST",
-        data: data
-    }
+    return (dispatch, getState) => {
+        dispatch(loadListRequest());
+        axios
+        .get('/data.json')
+        .then(response => {
+            dispatch(loadListSuccess(response));
+            console.log(response);
+        })
+        .catch(error => {
+            dispatch(loadListFail(error));
+        });
+    };
 }
 
 export const addToList = (data) => {

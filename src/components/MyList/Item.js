@@ -10,7 +10,7 @@ class Item extends Component {
                 <div className="middle">
                     <div className="title">{item.title}</div>
                     <button onClick={this.props.handleClick}>
-                        <i class="far fa-trash-alt" />
+                        <i className="far fa-trash-alt" />
                     </button>
                 </div>
             </div>

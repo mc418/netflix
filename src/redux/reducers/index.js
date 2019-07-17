@@ -5,11 +5,21 @@ const initState = {
 
 const reducer = (state=initState, action) => {
     switch(action.type) {
-        case "LOAD_LIST": {
+        case "LOAD_LIST_REQUEST": {
+            return {
+                ...state
+            }
+        }
+        case "LOAD_LIST_SUCCESS": {
             return {
                 ...state,
                 myList: action.data.mylist,
                 recommend: action.data.recommendations
+            }
+        }
+        case "LOAD_LIST_FAIL": {
+            return {
+                ...state
             }
         }
         case "ADD_TO_LIST":

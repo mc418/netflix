@@ -12,7 +12,7 @@ class MyList extends Component {
                 <h2>My List</h2>
                 <div className="item-container">
                     {list.map(item => (
-                        <Item item={item} handleClick={() => {this.props.remove(item)}} />
+                        <Item key={item.id} item={item} handleClick={() => {this.props.remove(item)}} />
                     ))}
                     {list.length === 0 && <p>whoops, nothing in your list yet, take a look at recommendation!</p>}
                 </div>
