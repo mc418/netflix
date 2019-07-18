@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import List from '../List';
-import MyList from '../MyList';
-import Recommend from '../Recommend';
+import Movies from '../Movies';
 import * as actions from '../../redux/actions';
 import { connect } from 'react-redux';
 import logo from './logo.jpg'
@@ -12,14 +10,20 @@ class Home extends Component {
     }
 
     render() {
-        const {list, recommend} = this.props;
+        const {list, recommend, remove, addToList} = this.props;
         return (
             <div>
-                {/* <h1>NETFLIX</h1> */}
                 <img className="logo" src={logo} alt="NETFLIX" />
-                <MyList />
-                <Recommend rec={recommend} />
-                <List myList={list} />
+                <Movies ls={list} act={remove} name={"myList"} />
+                <Movies ls={recommend} act={addToList} name={"recommend"} />
+                <h2>List</h2>
+                <ul>
+                    {list.map(item => (
+                        <li key={item.id}>
+                            {item.title}
+                        </li>
+                    ))}
+                </ul>
             </div>
         )
     }
@@ -36,8 +40,15 @@ const mapDispatchToProps = dispatch => {
     return {
         loadList: () => {
             dispatch(actions.loadList())
+        },
+        addToList: (data) => {
+            dispatch(actions.addToList(data))
+        },
+        remove: (data) => {
+            dispatch(actions.removeFromList(data))
         }
     }
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

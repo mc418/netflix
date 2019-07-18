@@ -1,6 +1,3 @@
-// import jsonData from "../../data/data.json";
-// const loadData = () => JSON.parse(JSON.stringify(jsonData));
-// const data = loadData();
 import axios from "axios"
 
 function loadListRequest() {
